@@ -29,28 +29,8 @@ done
 setup-workspace
 setup-repo dd-source
 
-# Install ET
-sudo apt-get install -y software-properties-common
-sudo add-apt-repository -y ppa:jgmath2000/et
 sudo apt-get update
-sudo apt-get install -y et
 sudo apt-get upgrade -y
-
-# Launch ET
-sudo mkdir -p /var/run/s6/services/etserver/
-sudo chmod o+w /var/run/s6/services/etserver/
-
-# ---------- /var/run/s6/services/etserver/run ----------
-cat > /var/run/s6/services/etserver/run <<'EOF'
-#!/usr/bin/execlineb -P
-# start the Eternal-Terminal server in the foreground
-exec etserver --cfgfile=/etc/et.cfg --port 8049
-EOF
-
-chmod +x /var/run/s6/services/etserver/run
-sudo s6-svscanctl -a /var/run/s6/services
-sudo s6-svstat /var/run/s6/services/etserver
-
 
 # FISH
 curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
