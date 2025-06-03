@@ -1,0 +1,25 @@
+[core]
+	hooksPath = /usr/local/dd/global_hooks
+[user]
+	email = artem.ivanov@datadoghq.com
+	name = Artem Ivanov
+	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMSiGUoXg3McYygPhhS/3nrYydr1iQXgn16NyQVu94Jl 
+
+[url "git@github.com:"]
+	insteadOf = https://github.com/
+	insteadOf = git://github.com/
+[gpg]
+	format = ssh
+[commit]
+	gpgsign = true
+[dd-gitsign]
+	username = ivanovart
+
+[fetch]
+	prune = true
+[push]
+	autoSetupRemote = true
+[alias]
+	review = "!git fetch -f origin \"$1:$1\" && git checkout \"$1\" #"
+[init]
+	defaultBranch = main
