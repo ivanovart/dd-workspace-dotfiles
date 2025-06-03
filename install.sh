@@ -19,7 +19,7 @@ set -euo pipefail
 DOTFILES_PATH="$HOME/dotfiles"
 
 # Symlink dotfiles to the root within your workspace
-find $DOTFILES_PATH -type f -path "$DOTFILES_PATH/.*" |
+find $DOTFILES_PATH -type f -path "$DOTFILES_PATH/.*" -not -path "$DOTFILES_PATH/.git/*" |
 while read df; do
   link=${df/$DOTFILES_PATH/$HOME}
   mkdir -p "$(dirname "$link")"
@@ -34,4 +34,5 @@ sudo apt-get upgrade -y
 
 # FISH
 curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
+
 omf install
