@@ -36,3 +36,6 @@ sudo apt-get upgrade -y
 curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
 
 omf install
+set -gx EDITOR vim
+
+./update-all-tools.sh
